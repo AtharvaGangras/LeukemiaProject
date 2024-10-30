@@ -66,7 +66,6 @@ def model_predict(img_path, interpreter):
 def index():
     return render_template('index.html')
 
-# Route to handle image uploads and predictions
 @app.route('/predict', methods=['GET', 'POST'])
 def upload():
     if request.method == 'POST':
@@ -99,11 +98,49 @@ def upload():
                 result = "Prediction index out of range."
 
             # Return the predicted class as the result
-            return result
+            return render_template('result.html', result=result, image_path=f.filename)
         except Exception as e:
             print(f"Error during upload or prediction: {str(e)}")
             return "Error during prediction."
     return None
+
+
+@app.route('/index', methods=['GET'])
+def home_redirect():
+    return redirect(url_for('index'))
+
+# Route to render the help page
+@app.route('/help', methods=['GET'])
+def help():
+    return render_template('help.html')
+
+# Route to render the login page
+@app.route('/login', methods=['GET'])
+def login():
+    return render_template('login.html')  # Create this login.html file
+
+# Route for logout action
+@app.route('/logout', methods=['GET'])
+def logout():
+    # Implement logout functionality, e.g., clear session data
+    return redirect(url_for('index'))
+
+# Route for About Leukemia page
+@app.route('/about_leukemia', methods=['GET'])
+def about_leukemia():
+    return render_template('about_leukemia.html')
+
+# Route for Precautions page
+@app.route('/precautions', methods=['GET'])
+def precautions():
+    return render_template('precautions.html')
+
+# Route for Basic Treatment page
+@app.route('/basic_treatment', methods=['GET'])
+def basic_treatment():
+    return render_template('basic_treatment.html')
+
+# Route to handle image uploads and predictions
 
 # Run the Flask app
 if __name__ == '__main__':

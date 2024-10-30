@@ -38,12 +38,20 @@ input[type="file"] {
 }
 
 .loader {
+    justify-content: center;
+    align-items: center;
     border: 8px solid #f3f3f3; /* Light grey */
     border-top: 8px solid #3498db; /* Blue */
     border-radius: 50%;
     width: 50px;
     height: 50px;
     animation: spin 1s linear infinite;
+}
+
+.loader-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 @keyframes spin {
@@ -131,3 +139,48 @@ h2 {
     font-weight: bold;
     color: #27ae60; /* Green for results */
 }
+
+
+.footer {
+    background-color: #34495E; /* Dark footer background */
+    color: white; /* Footer text color */
+    text-align: center;
+    padding: 20px 0; /* Padding for the footer */
+    position: relative; /* Allows it to sit at the bottom */
+    width: 100%; /* Full width */
+    bottom: 0;
+}
+
+.container-main {
+    width: 100%; /* Take full width of the parent */
+    max-width: 1140px; /* Adjust according to the Bootstrap container max width */
+    padding-right: 15px; /* Same padding as Bootstrap */
+    padding-left: 15px; /* Same padding as Bootstrap */
+    margin-right: auto; /* Center the container */
+    margin-left: auto; /* Center the container */
+    height: auto;
+}
+
+html,
+body {
+    height: 100%; /* Full height for the body */
+    margin: 0; /* Remove default margin */
+}
+
+body {
+    display: flex;
+    flex-direction: column; /* Arrange children in a column */
+}
+
+.container-main {
+    flex: 1; /* Allow the main content to grow and fill space */
+}
+
+.footer {
+    background-color: #343a40; /* Dark background for the footer */
+    color: white; /* White text color */
+    padding: 20px 0; /* Padding for the footer */
+    text-align: center; /* Center the text */
+    position: relative; /* Allows absolute positioning inside */
+}
+
